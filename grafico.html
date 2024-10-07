@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: flex;">
+    <div>
+        <canvas id="myChart" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+    <div>
+        <canvas id="myChart2" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+    const labels2 = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'junho',
+    ];
+
+    const ctx = document.getElementById('myChart');
+    const ctx2 = document.getElementById('myChart2');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: labels,
+        datasets: [{
+                label: 'Temperatura',
+                data: [30,29,28,25,22,23],
+                borderWidth: 1,
+                borderColor: '#FF6384',
+                backgroundColor: '#FE5B7E',
+            },
+            {
+                label: 'Umidade',
+                data: [80,82,80,85,80,83],
+                borderWidth: 1,
+                borderColor: '#2299E9',
+                backgroundColor: '#36A2EB',
+            }
+            
+            ]
+        },
+    });
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+        labels: labels2,
+        datasets: 
+            [
+                {
+                    label: 'Temperatura Média',
+                    data: [22,24,27,23,20,18],
+                    borderWidth: 1,
+                    borderColor: '#FF6384',
+                    backgroundColor: '#FE5B7E',
+                },            
+                {
+                    label: 'Umidade Média',
+                    data: [90,89,93,87,88,82],
+                    borderWidth: 1,
+                    borderColor: '#2299E9',
+                    backgroundColor: '#36A2EB',
+                }
+            ]
+        },
+    });
+</script>
